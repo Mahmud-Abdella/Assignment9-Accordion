@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion</title>
+
+    <style>
+      body {
+        line-height: 1;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 100;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h2 {
+        margin: 0;
+        line-height: 1;
+      }
+
+      .container {
+        max-width: 20em;
+        position: relative;
+        margin: 1.5em auto;
+        border-right: 1px solid #eee;
+        border-left: 1px solid #eee;
+      }
+
+      label {
+        display: block;
+        overflow: hidden;
+      }
+
+      .title {
+        padding: 1em 3em;
+        position: relative;
+        z-index: 599;
+        background: #fbfbfb;
+        border-bottom: 1px solid #eee;
+        background-color: #d5de3b;
+      }
+
+      .content {
+        position: relative;
+        padding: 0;
+        max-height: 0px;
+        border-bottom: 1px solid #eee;
+        background-color: rgb(50, 185, 155);
+      }
+
+      h3 {
+        position: relative;
+        padding: 0.5em 0.5em;
+        margin: 0;
+        @include transform(scale(0));
+        opacity: 0;
+        @include transition(all 0.55s ease);
+      }
+
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      input[type="checkbox"]:checked + .title + .content {
+        max-height: 555px;
+      }
+
+      input[type="checkbox"]:checked + .title + .content h3 {
+        @include transform(scale(1));
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label for="chk-1">
+        <input id="chk-1" type="checkbox" />
+        <div class="title">
+          <h2>OTT</h2>
+        </div>
+        <div class="content">
+          <h3>Netflix</h3>
+          <h3>Amazon Prime</h3>
+        </div>
+      </label>
+
+      <label for="chk-2">
+        <input id="chk-2" type="checkbox" />
+        <div class="title">
+          <h2>Shows</h2>
+        </div>
+
+        <div class="content">
+          <h3>Money Heist</h3>
+          <h3>Originals</h3>
+          <h3>House of Dargons</h3>
+        </div>
+      </label>
+
+      <label for="chk-3">
+        <input id="chk-3" type="checkbox" />
+        <div class="title">
+          <h2>Main Character</h2>
+        </div>
+        <div class="content">
+          <h3>The Professor</h3>
+          <h3>Niklaus Mickelson</h3>
+          <h3>Rhaenyra Targaryen</h3>
+        </div>
+      </label>
+    </div>
+  </body>
+</html>
